@@ -10,7 +10,7 @@ hw2.define([
     "hw2!PATH_JS_LIB:common/Uri.js"
 ], function () {
     var $ = this;
-    $.Browser.Uri = $.Class({base: $.Uri, members: [
+    return $.Browser.Uri = $.Class({base: $.Uri, members: [
             {
                 attributes: "static",
                 name: "instance",
@@ -19,44 +19,16 @@ hw2.define([
             {
                 attributes: "static",
                 name: "I",
-                val: function (make_new) {
+                val: function (make_new, parseFragment) {
                     if (make_new || !this._s.instance) {
-                        this._s.instance = new $.Browser.Uri(document.location.href);
+                        this._s.instance = new $.Browser.Uri(document.location.href, parseFragment);
                     }
 
                     return this._s.instance;
                 }
             },
             {
-                attributes: "static",
-                name: "updateParams",
-                val: function (params, remove, refresh, search) {
-                    if (typeof search === "undefined")
-                        search = document.location.search.substr(1);
-
-                    $.Browser.JQ.each(params, function (key, value) {
-                        search = this._s.updateParam(search, key, value, remove);
-                    });
-
-                    //this will reload the page, it's likely better to store this until finished
-                    if (refresh)
-                        document.location.search = search;
-                    else
-                        window.history.pushState("", "", document.location.pathname + "?" + search);
-                }
-            },
-            {
-                attributes: "static",
-                name: "updateParam",
-                val: function (key, value, remove, refresh, search)
-                {
-                    var tmp = {};
-                    tmp[key] = value;
-                    this.s.updateParams(tmp, remove, refresh, search);
-                }
-            },
-            {
-                attributes: "private static",
+                attributes: "public static",
                 name: "updateParam",
                 val: function (search, key, value, remove) {
                     key = encodeURI(key);
