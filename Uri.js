@@ -5,9 +5,9 @@
 
 'use strict';
 
-hw2.define([
-    "hw2!{PATH_JS_LIB}browser/uri/include.js",
-    "hw2!{PATH_JS_LIB}uri/Uri.js"
+hwc.define([
+    "hwc!{PATH_JS_LIB}browser/uri/include.js",
+    "hwc!{PATH_JS_LIB}uri/Uri.js"
 ], function () {
     var $ = this;
     return $.Browser.Uri = $.Class({base: $.Uri, members: [
