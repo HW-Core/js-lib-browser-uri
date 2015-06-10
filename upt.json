@@ -1,8 +1,8 @@
 {
-  "name": "hw2/modules/js/src/library/browser/uri/doc",
+  "name": "hwcore/modulesjs/src/library/browser/uri/doc",
   "license": "http://www.hyperweb2.com/terms",
   "dependencies": {
-    "%parent-lib": "hw2-core/js-library-browser-uri"
+    "%parent-lib": "hw-core/js-library-browser-uri"
   },
   "_comment_keep": "ensure we keep the right git repository configurations",
   "keep": [
