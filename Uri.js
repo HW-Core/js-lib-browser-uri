@@ -6,7 +6,7 @@
 'use strict';
 
 hwc.define([
-    "hwc!{PATH_JS_LIB}browser/uri/include.js",
+    "hwc!{PATH_JS_LIB}browser-uri/include.js",
     "hwc!{PATH_JS_LIB}uri/Uri.js"
 ], function () {
     var $ = this;
